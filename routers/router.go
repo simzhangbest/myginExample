@@ -4,8 +4,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"myginExample/middleware/jwt"
 	"myginExample/pkg/setting"
+	"myginExample/pkg/upload"
 	"myginExample/routers/api"
 	"myginExample/routers/api/v1"
+	"net/http"
 )
 
 func InitRouter() *gin.Engine {
@@ -15,6 +17,10 @@ func InitRouter() *gin.Engine {
 	gin.SetMode(setting.ServerSetting.RunMode)
 
 	r.GET("/auth", api.GetAuth)
+	//r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	r.POST("/upload", api.UploadImage)
+
+	r.StaticFS("/upload/images", http.Dir(upload.GetImageFullPath()))
 
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())
