@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3720d797-5885-4c75-99ee-2699c118cc78" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/logging/file.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/logging/log.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/api/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/article.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/tag.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/tag.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/util/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/api/v1/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/api/v1/article.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/api/v1/tag.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/api/v1/tag.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/article.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+            <state relative-caret-position="169">
+              <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -95,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/models.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-173">
-              <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+            <state relative-caret-position="340">
+              <caret line="51" column="24" lean-forward="true" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
               <folding>
                 <element signature="e#16#139#0" expanded="true" />
               </folding>
@@ -159,9 +148,9 @@
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/routers/api/v1/article.go" />
         <option value="$PROJECT_DIR$/routers/api/v1/tag.go" />
-        <option value="$PROJECT_DIR$/models/models.go" />
         <option value="$PROJECT_DIR$/models/tag.go" />
         <option value="$PROJECT_DIR$/models/article.go" />
+        <option value="$PROJECT_DIR$/models/models.go" />
       </list>
     </option>
   </component>
@@ -244,12 +233,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49833888" visible="true" weight="0.25266525" />
-      <window_info id="Structure" order="1" sideWeight="0.5016611" side_tool="true" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988864" visible="true" weight="0.25266525" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.5011136" side_tool="true" visible="true" weight="0.25266525" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962137" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32962137" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32962137" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -257,7 +246,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.29287305" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.7193764" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -515,16 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/models.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-173">
-          <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
-          <folding>
-            <element signature="e#16#139#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/tag.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -534,8 +513,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/article.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+        <state relative-caret-position="169">
+          <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/models.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="51" column="24" lean-forward="true" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+          <folding>
+            <element signature="e#16#139#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
