@@ -2,14 +2,11 @@ package models
 
 type Tag struct {
 	Model
-	Name string `json:"name"`
-	CreatedBy string `json:"created_by"`
+	Name       string `json:"name"`
+	CreatedBy  string `json:"created_by"`
 	ModifiedBy string `json:"modified_by"`
-	State int `json:"state"`
+	State      int    `json:"state"`
 }
-
-
-
 
 func ExistTagByName(name string) bool {
 	var tag Tag
@@ -21,10 +18,10 @@ func ExistTagByName(name string) bool {
 }
 
 func AddTag(name string, state int, createdBy string) bool {
-	db.Create(&Tag {
-		Name : name,
-		State : state,
-		CreatedBy : createdBy,
+	db.Create(&Tag{
+		Name:      name,
+		State:     state,
+		CreatedBy: createdBy,
 	})
 	return true
 }
@@ -55,6 +52,12 @@ func DeleteTag(id int) bool {
 
 func EditTag(id int, data interface{}) bool {
 	db.Model(&Tag{}).Where("id = ?", id).Update(data)
+
+	return true
+}
+
+func CleanAllTag() bool {
+	db.Unscoped().Where("deleted_on != ? ", 0).Delete(&Tag{})
 
 	return true
 }

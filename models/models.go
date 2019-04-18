@@ -1,8 +1,8 @@
 package models
 
 import (
-	"log"
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/jinzhu/gorm"
@@ -14,31 +14,37 @@ import (
 var db *gorm.DB
 
 type Model struct {
-	ID int `gorm:"primary_key" json:"id"`
-	CreatedOn int `json:"created_on"`
+	ID         int `gorm:"primary_key" json:"id"`
+	CreatedOn  int `json:"created_on"`
 	ModifiedOn int `json:"modified_on"`
-	DeletedOn int `json:"deleted_on"`
+	DeletedOn  int `json:"deleted_on"`
 }
 
-func init() {
+func Setup() {
 	var (
-		err error
+		err                                               error
 		dbType, dbName, user, password, host, tablePrefix string
 	)
 
-	sec, err := setting.Cfg.GetSection("database")
-	if err != nil {
-		log.Fatal(2, "Fail to get section 'database': %v", err)
-	}
-	fmt.Println(sec)
+	//sec, err := setting.Cfg.GetSection("database")
+	//if err != nil {
+	//	log.Fatal(2, "Fail to get section 'database': %v", err)
+	//}
+	//fmt.Println(sec)
 
-	dbType = sec.Key("TYPE").String()
-	dbName = sec.Key("NAME").String()
-	user = sec.Key("USER").String()
-	password = sec.Key("PASSWORD").String()
-	host = sec.Key("HOST").String()
-	tablePrefix = sec.Key("TABLEPREFIX").String()
+	dbType = setting.DatabaseSetting.Type
+	dbName = setting.DatabaseSetting.Name
+	user = setting.DatabaseSetting.User
+	password = setting.DatabaseSetting.Password
+	host = setting.DatabaseSetting.Host
+	tablePrefix = setting.DatabaseSetting.TablePrefix
 
+	//dbType = sec.Key("TYPE").String()
+	//dbName = sec.Key("NAME").String()
+	//user = sec.Key("USER").String()
+	//password = sec.Key("PASSWORD").String()
+	//host = sec.Key("HOST").String()
+	//tablePrefix = sec.Key("TABLEPREFIX").String()
 
 	fmt.Println("dbType: " + dbType + "dbName: " + dbName)
 	db, err = gorm.Open(dbType, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
@@ -47,23 +53,23 @@ func init() {
 		host,
 		dbName))
 
-
 	if err != nil {
 		log.Println(err)
 	}
 
-	gorm.DefaultTableNameHandler = func (db *gorm.DB, defaultTableName string) string  {
-		return tablePrefix + defaultTableName;
+	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTableName string) string {
+		return tablePrefix + defaultTableName
 	}
 
+	//logging.Info(db.Value)
 	db.SingularTable(true)
 	db.DB().SetMaxIdleConns(10)
 	db.DB().SetMaxOpenConns(100)
 
 	db.Callback().Create().Replace("gorm:update_time_stamp", updateTimeStampForCreateCallback)
 	db.Callback().Update().Replace("gorm:update_time_stamp", updateTimeStampForUpdateCallback)
-
 	db.Callback().Delete().Replace("gorm:delete", deleteCallback)
+
 }
 
 func CloseDB() {
@@ -86,7 +92,6 @@ func updateTimeStampForCreateCallback(scope *gorm.Scope) {
 		}
 	}
 }
-
 
 // updateTimeStampForUpdateCallback will set `ModifyTime` when updating
 func updateTimeStampForUpdateCallback(scope *gorm.Scope) {

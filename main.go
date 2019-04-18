@@ -3,26 +3,32 @@ package main
 import (
 	"context"
 	"fmt"
+	"myginExample/models"
+	"myginExample/pkg/logging"
+
 	//"github.com/labstack/gommon/log"
+	"log"
 	"myginExample/routers"
 	"net/http"
 	"os"
 	"os/signal"
-	"log"
 	"time"
 
 	"myginExample/pkg/setting"
 )
 
 func main() {
+	setting.Setup()
+	models.Setup()
+	logging.Setup()
 
 	router := routers.InitRouter()
 
 	s := &http.Server{
-		Addr:           fmt.Sprintf(":%d", setting.HTTPPort),
+		Addr:           fmt.Sprintf(":%d", setting.ServerSetting.HttpPort),
 		Handler:        router,
-		ReadTimeout:    setting.ReadTimeout,
-		WriteTimeout:   setting.WriteTimeout,
+		ReadTimeout:    setting.ServerSetting.ReadTimeout,
+		WriteTimeout:   setting.ServerSetting.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
 
@@ -38,7 +44,7 @@ func main() {
 
 	log.Print("shutdown server ....")
 
-	ctx, cancel := context.WithTimeout(context.Background(), 5 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	if err := s.Shutdown(ctx); err != nil {
 		log.Fatal("server shutdown:", err)
