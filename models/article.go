@@ -1,10 +1,5 @@
 package models
 
-import (
-	"github.com/jinzhu/gorm"
-	"time"
-)
-
 type Article struct {
 	Model
 
@@ -74,16 +69,16 @@ func DeleteArticle(id int) bool  {
 	return true
 }
 
-func (article *Article) BeforeCreate(scope * gorm.Scope) error {
-	scope.SetColumn("created_on", time.Now().Unix())
-
-	return nil
-}
-
-func (article *Article) BeforeUpdate(scope *gorm.Scope) error {
-	scope.SetColumn("modified_on", time.Now().Unix())
-
-	return nil
-}
+//func (article *Article) BeforeCreate(scope * gorm.Scope) error {
+//	scope.SetColumn("created_on", time.Now().Unix())
+//
+//	return nil
+//}
+//
+//func (article *Article) BeforeUpdate(scope *gorm.Scope) error {
+//	scope.SetColumn("modified_on", time.Now().Unix())
+//
+//	return nil
+//}
 
 

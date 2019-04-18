@@ -1,15 +1,17 @@
 package v1
 
 import (
+	"myginExample/pkg/logging"
+
+	//"fmt"
 	"github.com/Unknwon/com"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
-	"github.com/labstack/gommon/log"
 	"myginExample/models"
 	"myginExample/pkg/e"
 	"myginExample/pkg/setting"
-	"net/http"
 	"myginExample/pkg/util"
+	"net/http"
 )
 
 func GetArticle(c *gin.Context) {
@@ -29,7 +31,10 @@ func GetArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			//log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			//logging.Info(fmt.Sprintf("err.key: %s, err.message: %s",  err.Key, err.Message))
+			//logging.Info(string(err.Key), string(err.Message))
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -68,7 +73,10 @@ func GetArticles(c *gin.Context) {
 
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			//log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			//logging.Info(fmt.Sprintf("err.key: %s, err.message: %s", err.Key, err.Message))
+			//fmt.Println(err)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -79,7 +87,7 @@ func GetArticles(c *gin.Context) {
 	})
 }
 
-//新增文章
+
 func AddArticle(c *gin.Context) {
 	tagId := com.StrTo(c.Query("tag_id")).MustInt()
 	title := c.Query("title")
@@ -114,7 +122,10 @@ func AddArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			//log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			//logging.Info(fmt.Sprintf("err.key: %s, err.message: %s", err.Key, err.Message))
+			//fmt.Println(err)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -180,7 +191,7 @@ func EditArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -208,7 +219,8 @@ func DeleteArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			//log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 

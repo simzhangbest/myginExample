@@ -1,10 +1,5 @@
 package models
 
-import (
-	"github.com/jinzhu/gorm"
-	"time"
-)
-
 type Tag struct {
 	Model
 	Name string `json:"name"`
@@ -14,15 +9,7 @@ type Tag struct {
 }
 
 
-func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
-	scope.SetColumn("created_on", time.Now().Unix())
-	return nil
-}
 
-func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
-	scope.SetColumn("modified_on", time.Now().Unix())
-	return nil
-}
 
 func ExistTagByName(name string) bool {
 	var tag Tag
@@ -71,3 +58,13 @@ func EditTag(id int, data interface{}) bool {
 
 	return true
 }
+
+//func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
+//	scope.SetColumn("created_on", time.Now().Unix())
+//	return nil
+//}
+//
+//func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
+//	scope.SetColumn("modified_on", time.Now().Unix())
+//	return nil
+//}
